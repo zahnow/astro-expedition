@@ -1,0 +1,23 @@
+---
+import Divider from "@components/shared/Divider.astro";
+import Link from "@components/shared/Link.astro";
+---
+
+<>
+  <Divider reduceMargin />
+  <div
+    class="pb-2 flex flex-col items-center md:flex-row md:justify-between md:items-end"
+  >
+    <p class="text-xs">©2024 Your Name</p>
+    <div class="text-xs text-right">
+      <p>
+        Powered by <Link url="https://astro.build">Astro.js</Link>
+      </p>
+      <p>
+        <Link url="https://github.com/zahnow/expedition-astro">
+          Expedition</Link
+        > theme
+      </p>
+    </div>
+  </div>
+</>

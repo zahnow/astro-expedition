@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Divider from "@components/shared/Divider.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<Layout title={project.data.title}>
+  <img class="mb-8" src={project.data.image.src} alt={project.data.image.alt} />
+  {
+    project.data.tags && (
+      <Divider reduceMargin />
+      <div class="flex gap-4 justify-center">
+        {project.data.tags?.map((tag) => (
+          <a href={`/projects/tags/${tag}`}>
+          <div class="inline-flex items-center rounded-full border-2 bg-amber-500 border-amber-400 hover:bg-amber-400 dark:border-stone-500 px-2 dark:text-stone-100 dark:bg-stone-700 dark:hover:bg-stone-500">
+            <p class="text-xs font-bold text-stone-900 dark:text-stone-100 font-[system-ui]">{tag}</p>
+          </div>
+          </a> 
+        ))}
+      </div>
+      <Divider reduceMargin />
+    )
+  }
+  <article class="mx-auto prose prose-stone dark:prose-invert text-stone-100">
+    <Content />
+  </article>
+</Layout>

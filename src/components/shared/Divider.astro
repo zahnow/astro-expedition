@@ -1,0 +1,11 @@
+---
+interface Props {
+  reduceMargin?: boolean;
+}
+
+const { reduceMargin } = Astro.props;
+---
+
+<hr
+  class=`h-1 ${reduceMargin ? 'my-2' : 'my-8'} border-0 bg-stone-900 dark:bg-stone-100`
+/>

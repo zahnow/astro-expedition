@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Card from "@components/contact/Card.astro";
+import Grid from "@components/shared/Grid.astro";
+
+const links = await getCollection("links");
+---
+
+<Layout title="Contact">
+  <Grid>
+    {links.map((link: any) => <Card link={link} />)}
+  </Grid>
+</Layout>

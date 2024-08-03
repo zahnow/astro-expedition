@@ -1,0 +1,17 @@
+---
+import CardTitle from "./CardTitle.astro";
+
+const { project } = Astro.props;
+---
+
+<a href=`/projects/${project.slug}`>
+  <div class="flex flex-col items-center">
+    <CardTitle>{project.data.title}</CardTitle>
+    <div
+      class="p-4 pb-2 min-w-full flex flex-col gap-2 border-4 border-stone-900 dark:border-stone-100 text-center italic"
+    >
+      <img src={project.data.image.src} alt={project.data.image.alt} />
+      <p>{project.data.description}</p>
+    </div>
+  </div>
+</a>

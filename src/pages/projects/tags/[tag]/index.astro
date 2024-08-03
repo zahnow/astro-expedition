@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Card from "@components/projects/Card.astro";
+import Grid from "@components/shared/Grid.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  const uniqueTags = [
+    ...new Set(projects.map((project) => project.data.tags).flat()),
+  ];
+  return uniqueTags.map((tag) => ({
+    params: { tag },
+  }));
+}
+
+const projects = await getCollection("projects");
+const filteredProjects = projects.filter((project) => {
+  return project.data.tags?.includes(Astro.params.tag || "");
+});
+---
+
+<Layout title=`${Astro.params.tag} Projects`>
+  <Grid>
+    {
+      filteredProjects.map((project) => {
+        return <Card project={project} />;
+      })
+    }
+  </Grid>
+</Layout>

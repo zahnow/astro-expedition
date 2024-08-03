@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+import headshot from "@assets/images/headshot.webp";
+---
+
+<div
+  class="p-8 bg-stone-900 text-stone-100 dark:bg-stone-800 dark:text-stone-100 dark:border-stone-100 dark:border-4 flex flex-col lg:flex-row justify-center gap-8"
+>
+  <Image
+    class="w-full md:w-[512px] h-auto self-center rounded-full"
+    src={headshot}
+    alt="Replace this!"
+  />
+  <div
+    class="w-full lg:w-[512px] lg:h-[512px] gap-8 self-center py-4 flex flex-col justify-around text-2xl text-center lg:text-left"
+  >
+    <p class="font-bold text-4xl">Expedition</p>
+    <p>
+      Lorem ipsum dolor sit <span class="text-amber-300">amet</span>,
+      consectetur <span class="text-amber-400">adipiscing</span> elit. <span
+        class="text-amber-500">Curabitur</span
+      > vel elit vel augue varius tempor.
+    </p>
+    <p>Aliquam dapibus placerat ligula fermentum volutpat.</p>
+  </div>
+</div>
