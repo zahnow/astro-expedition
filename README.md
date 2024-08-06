@@ -1,6 +1,10 @@
 # Expedition
 
-## A portfolio theme for Astro.js
+![light screenshot](/docs/assets/screen-light.png)
+
+![dark screenshot](/docs/assets/screen-dark.png)
+
+Expedition is a portfolio theme for Astro.js.
 
 ## Stock Photography and Icon Credits
 
