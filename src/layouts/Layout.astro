@@ -9,6 +9,7 @@ import Header from "../components/shared/header/Header.astro";
 import Footer from "../components/shared/footer/Footer.astro";
 import Heading from "@components/shared/Heading.astro";
 import Divider from "@components/shared/Divider.astro";
+import MobileNav from "@components/shared/MobileNav.astro";
 ---
 
 <!doctype html>
@@ -30,20 +31,30 @@ import Divider from "@components/shared/Divider.astro";
   </head>
 
   <body
-    class="container mx-auto px-4 flex flex-col min-h-screen bg-amber-600 text-stone-900 dark:bg-stone-900 dark:text-stone-100"
+    class="min-h-screen bg-amber-600 text-stone-900 dark:bg-stone-900 dark:text-stone-100"
   >
-    <Header />
-    <div class="mb-auto">
-      {
-        !hideTitle && (
-          <div>
-            <Heading>{title.toUpperCase()}</Heading>
-            <Divider />
-          </div>
-        )
-      }
-      <slot />
+  <MobileNav />
+    <div class="container px-4 flex flex-col mx-auto">
+      <script>
+        //@ts-ignore
+        document.querySelector('.hamburger-menu').addEventListener('click', () => {
+          //@ts-ignore
+          document.querySelector('.mobile-nav').classList.toggle('hidden');
+        });
+      </script>
+      <Header />
+      <div class="mb-auto">
+        {
+          !hideTitle && (
+            <div>
+              <Heading>{title.toUpperCase()}</Heading>
+              <Divider />
+            </div>
+          )
+        }
+        <slot />
+      </div>
+      <Footer />
     </div>
-    <Footer />
   </body>
 </html>

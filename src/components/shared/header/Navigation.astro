@@ -1,8 +1,12 @@
 ---
 import NavItem from "@components/shared/header/NavItem.astro";
+import MenuIcon from "@components/shared/icons/Menu.astro";
 ---
 
-<div class="flex gap-4 flex-wrap">
+<div class="hamburger-menu md:hidden ml-auto hover:text-amber-300 dark:hover:text-amber-500">
+  <MenuIcon />
+</div>
+<div class="hidden md:flex gap-4 flex-wrap">
   <NavItem title="Home" url="/" />
   <NavItem title="Projects" url="/projects" />
   <NavItem title="Contact" url="/contact" />
