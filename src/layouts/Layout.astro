@@ -41,6 +41,11 @@ import MobileNav from "@components/shared/MobileNav.astro";
           //@ts-ignore
           document.querySelector('.mobile-nav').classList.toggle('hidden');
         });
+        //@ts-ignore
+        document.querySelector('.mobile-nav').addEventListener('click', () => {
+          //@ts-ignore
+          document.querySelector('.mobile-nav').classList.toggle('hidden');
+        });
       </script>
       <Header />
       <div class="mb-auto">
